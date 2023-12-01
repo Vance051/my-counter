@@ -1,13 +1,12 @@
 .App {
     text-align: center;
-}
-
-
-.counter {
     background: #412d2d;
-    width: 400px;
-    height: 400px;
+    width: 200px;
+    height: 200px;
 }
+
+
+
 
 .display {
     border-radius: 15px;

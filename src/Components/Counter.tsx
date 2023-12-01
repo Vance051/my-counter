@@ -6,10 +6,9 @@ type PropsType = {
 
 const Counter: FC<PropsType> = ({counter}) => {
     return (
-        <div className='counter'>
-            <div className={counter >= 5 ? `display maxCount` : 'display'}>
-                {counter}
-            </div>
+
+        <div className={counter >= 5 ? `display maxCount` : 'display'}>
+            {counter}
         </div>
     );
 };
