@@ -1,10 +1,16 @@
-import React from 'react';
+import React, {FC} from 'react';
+import counter from "./Counter";
 
-const Button = () => {
+type PropsType =
+    {
+        onClick: () => void
+        children: string
+        counterDisabled?:boolean
+    }
+
+const Button: FC<PropsType> = ({onClick, children, counterDisabled}) => {
     return (
-        <div>
-
-        </div>
+        <button className={counterDisabled? 'maxCount': ''} disabled={counterDisabled} onClick={onClick}>{children}</button>
     );
 };
 

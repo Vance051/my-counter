@@ -1,9 +1,15 @@
-import React from 'react';
+import React, {FC} from 'react';
 
-const Counter = () => {
+type PropsType = {
+    counter: number
+}
+
+const Counter: FC<PropsType> = ({counter}) => {
     return (
         <div className='counter'>
-            
+            <div className={counter >= 5 ? `display maxCount` : 'display'}>
+                {counter}
+            </div>
         </div>
     );
 };
