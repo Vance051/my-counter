@@ -1,9 +1,8 @@
-import React, {ChangeEvent, FC, useState} from 'react';
+import React, {ChangeEvent, FC} from 'react';
 import Button from "./Button";
 
 
 type PropsType = {
-    value: number | string
     maxVal: number
     setMaxVal: (maxVal: number) => void
     minVal: number
@@ -11,7 +10,7 @@ type PropsType = {
     setMaxMinValue: () => void
 
 }
-const SetMaxMinValue: FC<PropsType> = ({value, maxVal, setMaxVal, setMinVal, minVal, setMaxMinValue}) => {
+const SetMaxMinValue: FC<PropsType> = ({maxVal, setMaxVal, setMinVal, minVal, setMaxMinValue}) => {
 
 
     const setNewMaxVal = (e: ChangeEvent<HTMLInputElement>) => {
@@ -36,7 +35,7 @@ const SetMaxMinValue: FC<PropsType> = ({value, maxVal, setMaxVal, setMinVal, min
                                                   type="number"/></div>
             </div>
             <div className={'blockButton'}>
-                <Button counterDisabled={false} onClick={setMaxMinValue}>Set</Button>
+                <Button counterDisabled={ (maxVal<minVal || minVal<0)} onClick={setMaxMinValue}>Set</Button>
             </div>
         </div>
     );
