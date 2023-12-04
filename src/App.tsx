@@ -6,12 +6,13 @@ import SetMaxMinValue from "./Components/SetMaxMinValue";
 function App() {
     const [minVal, setMinVal] = useState(0)
 
-    const [value, setValue] = useState(0)
+    const [value, setValue] = useState<number|null>(null)
     const [maxVal, setMaxVal] = useState(0)
 
 
     const incValue = () => {
-        setValue(value + 1)
+        if (value===null) return;
+            setValue(value + 1)
 
     }
     const resetValue = () => {
@@ -29,7 +30,6 @@ function App() {
     return (
         <div className="App">
             <SetMaxMinValue
-                value={value}
                 maxVal={maxVal}
                 minVal={minVal}
                 setMaxVal={setMaxVal}
