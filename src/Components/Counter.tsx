@@ -2,7 +2,7 @@ import React, {FC} from 'react';
 import Button from "./Button";
 
 type PropsType = {
-    value: number | string
+    value: number | null
     incValue: () => void
     resetValue: () => void
     maxVal: number
@@ -15,11 +15,11 @@ const Counter: FC<PropsType> = (props) => {
     return (
         <div>
             <div className={'wrapperCounter'}>
-                <div className={'displayValue'}>{minVal===0 ? <span>startMessage</span> : minVal<0 ? <span>error</span> :value}</div>
+                <div className={'displayValue'}>{value===null ? startMessage : minVal<0 ? error:value}</div>
                 <div className={'blockButton'}>
-                    <Button counterDisabled={value < 0 || value >= maxVal}
+                    <Button counterDisabled={value===null || value < 0 || value >= maxVal}
                             onClick={incValue}>increase</Button>
-                    <Button counterDisabled={value <= minVal}
+                    <Button counterDisabled={value === null}
                             onClick={resetValue}>Reset</Button>
                 </div>
             </div>
