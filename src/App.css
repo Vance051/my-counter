@@ -1,22 +1,40 @@
 .App {
-    text-align: center;
-    background: #412d2d;
-    width: 200px;
-    height: 200px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
 }
-
-
-
-
-.display {
+.wrapperCounter {
+    width: 400px;
+    height: 300px;
+    background: #945c5c;
+    padding: 15px;
     border-radius: 15px;
-    width: 50%;
-    height: 30%;
-    background: #e0c0c0;
-    margin: auto;
+    border: 2px gold solid;
 }
 
+.displayValue {
+    font-size: 30px;
+    color: aliceblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 360px;
+    height: 130px;
+    background: #202c60;
+    border-radius: 15px;
+    border: 2px gold solid;
+    margin: 5px;
+}
 
-.maxCount {
-    color: red;
+.blockButton   {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 360px;
+    height: 130px;
+    background: #202c60;
+    border-radius: 15px;
+    border: 2px gold solid;
+    margin: 5px;
+
 }

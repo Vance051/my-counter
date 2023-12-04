@@ -1,29 +1,47 @@
 import React, {useState} from 'react';
 import './App.css';
 import Counter from "./Components/Counter";
-import Button from "./Components/Button";
+import SetMaxMinValue from "./Components/SetMaxMinValue";
 
 function App() {
-    const [counter, setCounter] = useState(0)
+    const [minVal, setMinVal] = useState(0)
 
-    const counterIncrease = () => {
-        setCounter(counter + 1)
+    const [value, setValue] = useState(0)
+    const [maxVal, setMaxVal] = useState(0)
+
+
+    const incValue = () => {
+        setValue(value + 1)
+
     }
-    const counterReset = () => {
-        setCounter(0)
+    const resetValue = () => {
+        setValue(0)
     }
 
-    const setValueCounter =() => {
-        let value = prompt('Value', '0')
-        const newValue = value?  +value: 0
-        setCounter(newValue)
+    const setMaxMinValue = () => {
+
+        setMaxVal(maxVal)
+        setMinVal(minVal)
+        setValue(minVal)
     }
+
+
     return (
         <div className="App">
-            <Counter counter={counter}/>
-            <Button counterDisabled={counter >= 5} onClick={counterIncrease}>Increase</Button>
-            <Button counterDisabled={counter === 0} onClick={counterReset}>Reset</Button>
-            <Button onClick={setValueCounter}>SetValue</Button>
+            <SetMaxMinValue
+                value={value}
+                maxVal={maxVal}
+                minVal={minVal}
+                setMaxVal={setMaxVal}
+                setMinVal={setMinVal}
+                setMaxMinValue={setMaxMinValue}
+            />
+            <Counter value={value}
+                     maxVal={maxVal}
+                     minVal={minVal}
+                     incValue={incValue}
+                     resetValue={resetValue}
+            />
         </div>
     );
 }
