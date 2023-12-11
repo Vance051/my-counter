@@ -8,9 +8,10 @@ type PropsType = {
     minVal: number
     setMinVal: (minVal: number) => void
     setMaxMinValue: () => void
+    disable: boolean
 
 }
-const SetMaxMinValue: FC<PropsType> = ({maxVal, setMaxVal, setMinVal, minVal, setMaxMinValue}) => {
+const SetMaxMinValue: FC<PropsType> = ({maxVal, setMaxVal, setMinVal, minVal, setMaxMinValue, disable}) => {
 
 
     const setNewMaxVal = (e: ChangeEvent<HTMLInputElement>) => {
@@ -19,6 +20,9 @@ const SetMaxMinValue: FC<PropsType> = ({maxVal, setMaxVal, setMinVal, minVal, se
     const setNewMinVal = (e: ChangeEvent<HTMLInputElement>) => {
         setMinVal(e.currentTarget.valueAsNumber)
     }// set minimum
+
+
+
     return (
 
         <div className={'wrapperCounter'}>
@@ -35,7 +39,8 @@ const SetMaxMinValue: FC<PropsType> = ({maxVal, setMaxVal, setMinVal, minVal, se
                                                   type="number"/></div>
             </div>
             <div className={'blockButton'}>
-                <Button counterDisabled={ (maxVal<minVal || minVal<0)} onClick={setMaxMinValue}>Set</Button>
+                <Button counterDisabled={(maxVal < minVal || minVal < 0) || disable}
+                        onClick={setMaxMinValue}>Set</Button>
             </div>
         </div>
     );
